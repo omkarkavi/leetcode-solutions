@@ -11,4 +11,4 @@ class Solution(object):
         fact = 2**(n-1)
         for i in a[-1::-1]:
             s.append(i + fact )
-        return a + 
+        return a + s
