@@ -1,26 +1,19 @@
-# Definition for a binary tree node.
+ Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    
-    def isSymmetric(self, root):
+    def isSameTree(self, p, q):
         """
-        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
         :rtype: bool
         """
-        
-        return self.isSameTreeReverse(root.left,root.right) 
-        
-        
-        
-    def isSameTreeReverse(self, p, q):
-        if p is None and q is None:
+        if p==None and q==None:
             return True
-
-        if p and q and p.val == q.val:
-            return self.isSameTreeReverse(p.left, q.right) and self.isSameTreeReverse(p.right, q.left)
-
-        return False
+        if p==None or q==None:
+            return False
+        if p.val==q.val:
+            return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
